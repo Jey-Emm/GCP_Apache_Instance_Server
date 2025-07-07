@@ -45,7 +45,7 @@ jobs:
         name: UploadtoGCS
         with:
           path: 'webapp'
-          destination: 'rng-personal'
+          destination: '${{ secrets.GCP_CLOUD_STORAGE_DESTINATION }}'
           parent: false
 
       - uses: google-github-actions/ssh-compute@v1.1.3
