@@ -32,7 +32,7 @@ jobs:
         name: AuthenticateGCP
         with:
           workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_ID }}'
-          service_account: 'githubaction-serviceaccount@persona-projects-459613.iam.gserviceaccount.com'
+          service_account: '${{ secrets.GCP_SERVICE_ACCOUNT}}'
 
       - uses: actions/download-artifact@v4.3.0
         name: Download Artifact
@@ -45,7 +45,7 @@ jobs:
         name: UploadtoGCS
         with:
           path: 'webapp'
-          destination: '${{ secrets.GCP_CLOUD_STORAGE_DESTINATION }}'
+          destination: 'rng-personal'
           parent: false
 
       - uses: google-github-actions/ssh-compute@v1.1.3
